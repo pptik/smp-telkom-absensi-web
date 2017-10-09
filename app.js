@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.use(flash())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    secret: "absensiSMP48",
+    secret: "absensiSMPTelkom",
     resave: false,
     saveUninitialized: true,
     store: new MongoStore({ url: configs.mongodb_uri }),
@@ -49,7 +49,7 @@ database.connect(function (err, db) {
             res.status(err.status || 500);
             res.render('error');
         });
-        var port = normalizePort(process.env.PORT || '8011');
+        var port = normalizePort(process.env.PORT || '8098');
         app.set('port', port);
         var server = http.createServer(app);
         server.listen(port);
